@@ -15,3 +15,11 @@ static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 pub fn plus_100(input: u32) -> u32 {
   input + 100
 }
+#[napi]
+pub fn fib(n: u32) -> u32 {
+  if n < 2 {
+    n
+  } else {
+    fib(n - 1) + fib(n - 2)
+  }
+}
